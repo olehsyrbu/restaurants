@@ -1,5 +1,5 @@
-
 ## Goal
+
 Show list of restaurants. When a restaurant is clicked, the user should be directed to a different page where they can view the restaurant's catalog.
 
 The catalog includes a search input at the top to filter products using the query parameter of the catalog endpoint.

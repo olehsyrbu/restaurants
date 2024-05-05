@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function useKeydown(keyCode: number,  callback: () => void) {
+function useKeydown(keyCode: number, callback: () => void) {
   useEffect(() => {
     const handleKeyPress = (event: { keyCode: number }) => {
       if (event.keyCode === keyCode) {

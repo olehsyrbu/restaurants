@@ -2,25 +2,26 @@ import { create } from 'zustand';
 import { Point } from '@src/types';
 
 interface GeolocationState {
+  loading: boolean;
+  error: boolean;
   userLocation: Point | null;
   fetchUserLocation: () => void;
 }
 
 const useGeolocationStore = create<GeolocationState>((set) => ({
+  loading: false,
+  error: false,
   userLocation: null,
   fetchUserLocation: () => {
+    set({ loading: true });
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const { latitude, longitude } = position.coords;
-          set({ userLocation: { latitude, longitude } });
-        },
-        (error) => {
-          console.error('Error getting user location:', error);
-        }
+        ({ coords: { latitude, longitude } }) =>
+          set({ userLocation: { latitude, longitude }, loading: false }),
+        () => set({ error: true, loading: false })
       );
     } else {
-      console.error('Geolocation is not supported by this browser.');
+      set({ error: true, loading: false });
     }
   },
 }));

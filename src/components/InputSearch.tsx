@@ -27,7 +27,7 @@ const InputSearch = ({
           <img
             src={InputClearIcon}
             alt="InputClearIcon"
-            className="w-8 h-8 rounded-full bg-white p-[0.3125rem"
+            className="w-8 h-8 rounded-full bg-white p-[0.3125rem]"
           />
         </button>
       )}

@@ -13,7 +13,7 @@ const IconButton = ({
   className,
   small,
 }: IconButtonProps) => {
-  const iconClassName = `rounded-full bg-[#262638] w-8 h-8 p-[0.5rem] ${small ? 'h-[1.5rem] w-[1.5rem] !p-[.025rem]' : ''} ${className}`;
+  const iconClassName = `rounded-full bg-[#262638] w-8 h-8 p-[0.5rem] ${small ? 'h-[1.5rem] w-[1.5rem] !p-[.25rem]' : ''} ${className}`;
   return (
     <button onClick={onClick}>
       <img src={src} alt={alt} className={iconClassName} />

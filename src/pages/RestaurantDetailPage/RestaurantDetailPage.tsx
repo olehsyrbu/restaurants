@@ -67,16 +67,16 @@ const RestaurantDetailPage = () => {
         <Warning>Error with loading data, please check url</Warning>
       ) : (
         <>
-          {isShowSearch && (
+          {isShowSearch ? (
             <SearchProducts onCloseSearch={() => setIsShowSearch(false)} />
+          ) : (
+            <div className="px-6 pb-24">
+              {catalogs && <RestaurantCatalogs catalogs={catalogs} />}
+              {selectedCatalog && (
+                <ProductList products={selectedCatalog.products} />
+              )}
+            </div>
           )}
-
-          <div className="px-6 pb-24">
-            {catalogs && <RestaurantCatalogs catalogs={catalogs} />}
-            {selectedCatalog && (
-              <ProductList products={selectedCatalog.products} />
-            )}
-          </div>
 
           {!isShowSearch && totalSum > 0 && (
             <TotalButton

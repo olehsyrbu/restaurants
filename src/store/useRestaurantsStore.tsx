@@ -15,19 +15,11 @@ const useRestaurantsStore = create<RestaurantsState>((set) => ({
   error: false,
   fetchRestaurants: async () => {
     try {
-      set(() => ({
-        loading: true,
-      }));
+      set(() => ({ loading: true }));
       const restaurants = await RestaurantApi.getAll();
-      set(() => ({
-        restaurants,
-        loading: false,
-      }));
+      set(() => ({ loading: false, restaurants }));
     } catch (e) {
-      set({
-        loading: false,
-        error: true,
-      });
+      set({ loading: false, error: true });
     }
   },
 }));

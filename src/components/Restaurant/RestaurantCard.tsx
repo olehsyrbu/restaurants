@@ -7,6 +7,7 @@ type ClassNames = {
   container: string;
   logo: string;
   image: string;
+  logoImage: string;
 };
 
 interface RestaurantCardProps {
@@ -18,8 +19,11 @@ interface RestaurantCardProps {
 
 const getClassNames = (compact?: boolean): ClassNames => ({
   container: compact ? 'rounded-2xl shadow-sm' : 'rounded-none',
-  logo: compact ? 'max-h-[55px] max-w-[55px]' : 'max-w-[74px] max-h-[74px]',
+  logo: compact
+    ? 'max-h-[3.4375rem] max-w-[3.4375rem]'
+    : 'max-w-[4.625rem] max-h-[4.625rem]',
   image: compact ? 'rounded-t-2xl' : '',
+  logoImage: compact ? '!top-[-1.5rem]' : '',
 });
 
 const RestaurantCard = ({
@@ -46,7 +50,7 @@ const RestaurantCard = ({
           src={logo}
           name={name}
           containerClassName={classNames.logo}
-          className="relative left-[1rem] top-[-1.5rem] h-full w-full rounded-2xl"
+          className={`relative left-[1rem] top-[-2rem] h-full w-full rounded-2xl ${classNames.logoImage}`}
           defaultIcon={DefaultRestaurantLogo}
         />
         <RestaurantInfo restaurant={restaurant} />

@@ -43,6 +43,9 @@ npm install
 Open link http://127.0.0.1:5173/
 
 
+#### Demo link 
+https://www.loom.com/share/ae44fa1e0bc841c0a4de9d67991c74b1
+
 #### Things to Improve:
 - Add tests
 - Implement a nice popup for purchase actions

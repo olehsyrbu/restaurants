@@ -4,8 +4,6 @@ import FallbackLoading from '@components/FallbackLoading';
 
 import Warning from '@components/Warning';
 import RestaurantList from '@components/Restaurant/RestaurantList';
-// import calculateAndSortByDistance from '@src/utils/calculateAndSortByDistance';
-// import { useMemo, useEffect } from 'react';
 
 const RestaurantsPage = () => {
   const {

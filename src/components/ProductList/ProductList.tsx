@@ -7,7 +7,9 @@ import usePurchaseStore from '@store/usePurchaseStore';
 const ProductList = ({ products }: { products: Product[] }) => {
   const { purchases, addPurchase, removePurchase } = usePurchaseStore();
 
-  if (products.length === 0) return <Warning>No products found</Warning>;
+  if (products.length === 0) {
+    return <Warning>No products found</Warning>;
+  }
   return (
     <div className="my-6 grid grid-cols-2 gap-5">
       {products.map((product) => {

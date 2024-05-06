@@ -1,4 +1,6 @@
 import Warning from '@src/components/Warning';
-export default function NotFound() {
-  return <Warning>Not Found page, please check is URL correct</Warning>;
+function NotFound() {
+  return <Warning>Page Not Found. Please check if the URL is correct.</Warning>;
 }
+
+export default NotFound;

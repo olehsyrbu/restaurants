@@ -3,7 +3,7 @@ import useRestaurantsStore from '@store/useRestaurantsStore';
 import useGeolocationStore from '@store/useGeolocationStore';
 import calculateAndSortByDistance from '@src/utils/calculateAndSortByDistance';
 
-const useFetchData = () => {
+function useFetchData() {
   const { fetchUserLocation, userLocation } = useGeolocationStore(
     (state) => state
   );
@@ -38,5 +38,5 @@ const useFetchData = () => {
       setRestaurants(sortedRestaurants);
     }
   }, [sortedRestaurants, restaurants, setRestaurants]);
-};
+}
 export default useFetchData;

@@ -1,10 +1,10 @@
 ## Goal
 
-Show list of restaurants. When a restaurant is clicked, the user should be directed to a different page where they can view the restaurant's catalog.
+Display a list of restaurants. When a restaurant is clicked, the user should be directed to a different page where they can view the restaurant's catalog.
 
 The catalog includes a search input at the top to filter products using the query parameter of the catalog endpoint.
 
-I use browser geolocation to obtain the latitude and longitude, and show closest restaurant to you.
+I use browser geolocation to obtain the latitude and longitude and display the closest restaurant to you.
 
 #### Front-end stack
 
@@ -41,3 +41,9 @@ npm install
 ```
 
 Open link http://127.0.0.1:5173/
+
+
+#### Things to Improve:
+- Add tests
+- Implement a nice popup for purchase actions
+- Convert all SVG icons to components to make them more reusable

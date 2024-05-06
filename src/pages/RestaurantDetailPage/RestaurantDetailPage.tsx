@@ -13,7 +13,7 @@ import {
 } from '@components/Restaurant';
 import ProductList from '@src/components/ProductList';
 import Warning from '@components/Warning';
-import SearchProducts from '@components/SearchProducts/SearchProducts';
+import SearchProducts from '@components/SearchProducts';
 import TotalButton from '@components/TotalButton';
 
 const RestaurantDetailPage = () => {

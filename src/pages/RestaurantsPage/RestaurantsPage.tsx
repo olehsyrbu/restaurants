@@ -4,7 +4,8 @@ import FallbackLoading from '@components/FallbackLoading';
 
 import Warning from '@components/Warning';
 import RestaurantList from '@components/Restaurant/RestaurantList';
-import calculateAndSortByDistance from '@src/utils/calculateAndSortByDistance';
+// import calculateAndSortByDistance from '@src/utils/calculateAndSortByDistance';
+// import { useMemo, useEffect } from 'react';
 
 const RestaurantsPage = () => {
   const {
@@ -12,14 +13,7 @@ const RestaurantsPage = () => {
     restaurants,
     error,
   } = useRestaurantsStore((state) => state);
-  const { userLocation, loading: geoLocationLoading } = useGeolocationStore(
-    (state) => state
-  );
-
-  const sortedRestaurants =
-    userLocation && restaurants
-      ? calculateAndSortByDistance(restaurants, userLocation)
-      : restaurants;
+  const { loading: geoLocationLoading } = useGeolocationStore((state) => state);
 
   if (error) {
     return <Warning>Error with loading Restaurants data...</Warning>;
@@ -30,8 +24,8 @@ const RestaurantsPage = () => {
       <h1 className="py-6 text-lg">Restaurantes</h1>
       {geoLocationLoading || restaurantLoading ? (
         <FallbackLoading />
-      ) : sortedRestaurants && sortedRestaurants.length > 0 ? (
-        <RestaurantList restaurants={sortedRestaurants} />
+      ) : restaurants && restaurants.length > 0 ? (
+        <RestaurantList restaurants={restaurants} />
       ) : (
         <Warning>No restaurants found...</Warning>
       )}

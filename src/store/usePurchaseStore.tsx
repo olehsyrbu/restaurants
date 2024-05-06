@@ -17,7 +17,7 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
         ...state.purchases,
         [itemName]: (state.purchases[itemName] || 0) + 1,
       },
-      total: state.total + price,
+      total: +Number(state.total + price).toFixed(2),
     })),
   removePurchase: (itemName: string, price: number) =>
     set((state) => {
@@ -28,7 +28,10 @@ const usePurchaseStore = create<PurchaseState>((set) => ({
           delete newPurchases[itemName];
         }
       }
-      return { purchases: newPurchases, total: state.total - price };
+      return {
+        purchases: newPurchases,
+        total: +Number(state.total - price).toFixed(2),
+      };
     }),
   removeAllPurchase: () => set(() => ({ purchases: {}, total: 0 })),
 }));

@@ -46,6 +46,7 @@ const RestaurantDetailPage = () => {
     return setSelectedCatalog(null);
   }, [setSelectedCatalog]);
 
+  console.log('totalSum :>> ', totalSum);
   return (
     <>
       {restaurant && (

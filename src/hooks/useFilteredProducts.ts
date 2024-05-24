@@ -2,24 +2,25 @@ import { Catalog } from '@src/types';
 import { useMemo } from 'react';
 
 function useFilteredProducts(catalogs: Catalog[] | null, searchTerm: string) {
-  const allProducts = useMemo(() => {
-    return catalogs ? catalogs.flatMap((category) => category.products) : [];
-  }, [catalogs]);
-
-  const filteredProducts = useMemo(() => {
-    return searchTerm
-      ? allProducts.filter((product) =>
-          product.name?.toLowerCase().includes(searchTerm?.toLowerCase())
-        )
-      : allProducts;
-  }, [allProducts, searchTerm]);
+  const allProducts = useMemo(
+    () => (catalogs ? catalogs.flatMap((category) => category.products) : []),
+    [catalogs]
+  );
 
   // const filteredProducts = useMemo(() => {
-  //   if (!searchTerm) return allProducts;
-
-  //   // const regex = new RegExp([...searchTerm].join('.*'), 'i');
-  //   // return allProducts.filter((product) => regex.test(product.name));
+  //   return searchTerm
+  //     ? allProducts.filter((product) =>
+  //         product.name?.toLowerCase().includes(searchTerm?.toLowerCase())
+  //       )
+  //     : allProducts;
   // }, [allProducts, searchTerm]);
+
+  const filteredProducts = useMemo(() => {
+    if (!searchTerm) return allProducts;
+
+    const regex = new RegExp([...searchTerm].join('.*'), 'i');
+    return allProducts.filter((product) => regex.test(product.name));
+  }, [allProducts, searchTerm]);
 
   return filteredProducts;
 }

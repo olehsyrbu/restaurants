@@ -14,6 +14,13 @@ function useFilteredProducts(catalogs: Catalog[] | null, searchTerm: string) {
       : allProducts;
   }, [allProducts, searchTerm]);
 
+  // const filteredProducts = useMemo(() => {
+  //   if (!searchTerm) return allProducts;
+
+  //   // const regex = new RegExp([...searchTerm].join('.*'), 'i');
+  //   // return allProducts.filter((product) => regex.test(product.name));
+  // }, [allProducts, searchTerm]);
+
   return filteredProducts;
 }
 

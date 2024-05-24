@@ -7,14 +7,6 @@ function useFilteredProducts(catalogs: Catalog[] | null, searchTerm: string) {
     [catalogs]
   );
 
-  // const filteredProducts = useMemo(() => {
-  //   return searchTerm
-  //     ? allProducts.filter((product) =>
-  //         product.name?.toLowerCase().includes(searchTerm?.toLowerCase())
-  //       )
-  //     : allProducts;
-  // }, [allProducts, searchTerm]);
-
   const filteredProducts = useMemo(() => {
     if (!searchTerm) return allProducts;
 
